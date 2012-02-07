@@ -35,6 +35,7 @@ Vagrant::Config.run do |config|
       chef.add_recipe "nginx"
       chef.add_recipe "php-fpm"
       chef.add_recipe "php::module_mongo"
+      chef.add_recipe "gearman::php"
     end
   end
 

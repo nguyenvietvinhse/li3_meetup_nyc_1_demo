@@ -42,31 +42,13 @@ use lithium\data\Connections;
  */
 Connections::add('default', array(
  	'type' => 'MongoDb',
- 	'host' => 'localhost',
+ 	'host' => '33.33.33.20',
  	'database' => 'li3-demo-app'
 ));
 
-/**
- * Uncomment this configuration to use CouchDB as your default database.
- */
-// Connections::add('default', array(
-// 	'type' => 'http',
-// 	'adapter' => 'CouchDb',
-// 	'host' => 'localhost',
-// 	'database' => 'my_app'
-// ));
-
-/**
- * Uncomment this configuration to use MySQL as your default database.
- */
-// Connections::add('default', array(
-// 	'type' => 'database',
-// 	'adapter' => 'MySql',
-// 	'host' => 'localhost',
-// 	'login' => 'root',
-// 	'password' => '',
-// 	'database' => 'my_app',
-// 	'encoding' => 'UTF-8'
-// ));
-
+Connections::add('gearman', array(
+	'type' => 'li3_gearman\extensions\Gearman',
+	'host' => '33.33.33.21',
+	'port' => '4730'
+));
 ?>
