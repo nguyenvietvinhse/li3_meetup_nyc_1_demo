@@ -51,7 +51,7 @@ Vagrant::Config.run do |config|
 
     # Assign this VM to a host only network IP, allowing you to access it
     # via the IP.
-    job_config.vm.network :hostonly, "33.33.33.20"
+    job_config.vm.network :hostonly, "33.33.33.21"
     job_config.ssh.max_tries = 400
 
     # Forward a port from the guest to the host, which allows for outside
@@ -70,9 +70,10 @@ Vagrant::Config.run do |config|
     #
     job_config.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
-      chef.add_recipe "gearman"
       chef.add_recipe "php"
       chef.add_recipe "php::module_mongo"
-      chef.add_recipe "php::module_gearman"
+      chef.add_recipe "gearman::server"
+      chef.add_recipe "gearman::php"
     end
+  end
 end
