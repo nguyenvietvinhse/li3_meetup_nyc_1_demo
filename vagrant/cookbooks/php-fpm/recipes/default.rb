@@ -17,11 +17,17 @@ end
   end
 end
 
+service "php5-fpm" do
+  supports :status => true, :restart => true
+  action [ :enable, :start ]
+end
+
 cookbook_file "/etc/php5/fpm/php-fpm.conf" do
   source "php5-fpm.conf"
   mode 0644
   owner "root"
   group "root"
+  notifies :restart, resources(:service => "php5-fpm")
 end
 
 cookbook_file "/etc/php5/fpm/pool.d/www.conf" do
@@ -29,8 +35,5 @@ cookbook_file "/etc/php5/fpm/pool.d/www.conf" do
   mode 0644
   owner "root"
   group "root"
-end
-
-service "php5-fpm" do
-  action [ :enable, :start ]
+  notifies :restart, resources(:service => "php5-fpm")
 end
