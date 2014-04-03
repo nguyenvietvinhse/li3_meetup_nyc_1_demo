@@ -2,18 +2,29 @@
 
 Grab the example code
 
-    git clone https://github.com/cgarvis/li3_meetup_nyc_1_demo
+    git clone --recursive https://github.com/fuo/li3_meetup_nyc_1_demo.git li3_demo
 
 Start up the VMs
 
     cd li3_demo/vagrant
-    vagrant up
+    vagrant destroy -f && vagrant up
 
-Check that everything is working at `33.33.33.20`.  You should get the standard lithium home page. Continue by starting up a worker:
+Check that everything is working at `33.33.33.20`.  You should get the standard lithium home page. Continue by log into the job server:
 
     vagrant ssh job
-    cd /var/www/app
-    ../libraries/libraries/console/li3 gearman work
+
+change listen address to 33.33.33.21
+
+	sudo vi /etc/default/gearman-job-server
+
+Restart the gearman job server
+
+	sudo service gearman-job-server restart
+
+Finally starting up a worker:	
+
+	cd /var/www/app
+	../libraries/libraries/console/li3 gearman work
 
 Open another terminal and queue up some work
 
