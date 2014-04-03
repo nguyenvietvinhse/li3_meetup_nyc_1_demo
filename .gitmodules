@@ -6,4 +6,4 @@
 	url = https://github.com/mariuskubilius/li3_filesystem.git
 [submodule "data/app/libraries/li3_gearman"]
 	path = data/app/libraries/li3_gearman
-	url = git@github.com:cgarvis/li3_gearman.git
+	url = https://github.com/cgarvis/li3_gearman.git
