@@ -1,5 +1,5 @@
 # Li3 NYC #1 - Demo
-
+vinh
 Grab the example code
 
     git clone --recursive https://github.com/fuo/li3_meetup_nyc_1_demo.git li3_demo
